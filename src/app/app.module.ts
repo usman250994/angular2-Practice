@@ -11,11 +11,13 @@ import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RandomChildComponent } from './random-child/random-child.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
+  { path: 'addhero', component: FormComponent },
   {path: 'heroes',
   component: HerosComponent,
   children: [
@@ -33,7 +35,8 @@ const routes: Routes = [
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    RandomChildComponent
+    RandomChildComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
