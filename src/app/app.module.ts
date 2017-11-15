@@ -20,7 +20,6 @@ const routes: Routes = [
   component: HerosComponent,
   children: [
     { path: '', component: HerosComponent },
-
     {path: 'test123', component: RandomChildComponent }
     // if url is changed to test123 then child component data will be displayed
   ]
