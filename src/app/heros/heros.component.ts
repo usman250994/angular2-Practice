@@ -18,7 +18,8 @@ export class HerosComponent implements OnInit {
 
   ngOnInit() {
     this.getHeroes();
-   if (this.router.url === '/heroes/abc')  {
+  // checking whther the url is specific for displaying route.. else blocked
+   if (this.router.url === '/heroes/test123')  {
  this.myBool = true;
  console.log(this.myBool);
      }
