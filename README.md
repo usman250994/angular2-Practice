@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # angular2-Practice
 starting up with angularjs-2
 =======
+=======
+>>>>>>> 404df14faf986bb5a16302ffb1225c7830e15c03
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
@@ -29,4 +32,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<<<<<<< HEAD
 >>>>>>> Practiced Routing
+=======
+>>>>>>> 404df14faf986bb5a16302ffb1225c7830e15c03

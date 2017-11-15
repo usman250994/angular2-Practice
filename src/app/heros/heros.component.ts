@@ -20,6 +20,7 @@ export class HerosComponent implements OnInit {
     this.getHeroes();
   // checking whther the url is specific for displaying route.. else blocked
    if (this.router.url === '/heroes/test123')  {
+
  this.myBool = true;
  console.log(this.myBool);
      }
