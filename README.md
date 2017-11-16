@@ -35,8 +35,10 @@ Authors Note:
 
 learnt angular 2 
 worked with 
-forms,
+forms,forms validation,
 routing, naviagation,
+children routes, and child component,
 guard,
 dependancy injections,
-services
+services,
+understanding of angular2 architecture 

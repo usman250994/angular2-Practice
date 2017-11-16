@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'addhero', canActivate: [AuthGuardService], component: FormComponent },
   {path: 'heroes', canActivate: [AuthGuardService],
   component: HerosComponent,
+ // children routes
   children: [
     { path: '',  component: HerosComponent },
     {path: 'test123', component: RandomChildComponent }
