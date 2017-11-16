@@ -12,20 +12,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RandomChildComponent } from './random-child/random-child.component';
 import { FormComponent } from './form/form.component';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'addhero', component: FormComponent },
-  {path: 'heroes',
+  { path: '', canActivate: [AuthGuardService], redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent },
+  { path: 'login',  component: LoginComponent },
+  { path: 'detail/:id', canActivate: [AuthGuardService], component: HeroDetailComponent },
+  { path: 'addhero', canActivate: [AuthGuardService], component: FormComponent },
+  {path: 'heroes', canActivate: [AuthGuardService],
   component: HerosComponent,
   children: [
-    { path: '', component: HerosComponent },
+    { path: '',  component: HerosComponent },
     {path: 'test123', component: RandomChildComponent }
     // if url is changed to test123 then child component data will be displayed
   ]
-  }
+  },
+  // redirection to 404 component
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -36,15 +41,17 @@ const routes: Routes = [
     MessagesComponent,
     DashboardComponent,
     RandomChildComponent,
-    FormComponent
+    FormComponent,
+    PageNotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(routes),
     AppRoutingModule,
-    RouterModule.forRoot(routes)
   ],
-  providers: [HeroService, MessageService],
+  providers: [HeroService, MessageService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

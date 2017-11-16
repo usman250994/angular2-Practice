@@ -13,7 +13,7 @@ import { Router, RouterModule } from '@angular/router';
 export class HerosComponent implements OnInit {
   myBool = false;
   heroes: Hero[];
-
+// dependancy injection  of heroService
   constructor(private heroService: HeroService, private router: Router) { }
 
   ngOnInit() {
