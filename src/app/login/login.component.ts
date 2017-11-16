@@ -17,9 +17,12 @@ constructor(private router: Router) {}
   ngOnInit() {
   }
   onSubmit(form: NgForm) {
+  // storing data in local storage
   localStorage.setItem('userName', form.form.controls.userName.value);
   localStorage.setItem('password', form.form.controls.password.value);
+  // checking what is stored
   console.log('navigating to correct page');
+  // navigating to home/dashboard
   this.router.navigate(['']);
   }
 
