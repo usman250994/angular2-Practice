@@ -1,0 +1,28 @@
+<h2>Practicing Reactive Forms</h2>
+
+<form [formGroup]="myReactiveForm" novalidate>
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">Address:
+      <input class="form-control" formControlName="address">
+    </label>
+  </div>
+  <div class="form-group radio">
+    <h4>Super power:</h4>
+    <label class="center-block"><input type="radio" formControlName="power" value="flight">Flight</label>
+    <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
+    <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
+  </div>
+  <div class="checkbox">
+    <label class="center-block">
+      <input type="checkbox" formControlName="sidekick">I have a sidekick.
+    </label>
+  </div>
+</form>
+
+
+<p>Form value: {{ myReactiveForm.value | json }}</p>

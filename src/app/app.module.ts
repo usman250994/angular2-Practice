@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HerosComponent } from './heros/heros.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component'; // <-- NgModel lives here
 import { HeroService } from './hero.service';
 import { MessageService } from './message.service';
@@ -15,11 +15,13 @@ import { FormComponent } from './form/form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
+import { ReactiveFormsPracticeComponent } from './reactive-forms-practice/reactive-forms-practice.component';
 const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent },
   { path: 'login',  component: LoginComponent },
   { path: 'detail/:id', canActivate: [AuthGuardService], component: HeroDetailComponent },
+  { path: 'reactiveForms', canActivate: [AuthGuardService], component: ReactiveFormsPracticeComponent },
   { path: 'addhero', canActivate: [AuthGuardService], component: FormComponent },
   {path: 'heroes', canActivate: [AuthGuardService],
   component: HerosComponent,
@@ -44,11 +46,13 @@ const routes: Routes = [
     RandomChildComponent,
     FormComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    ReactiveFormsPracticeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     AppRoutingModule,
   ],
