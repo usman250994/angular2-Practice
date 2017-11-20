@@ -16,6 +16,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { ReactiveFormsPracticeComponent } from './reactive-forms-practice/reactive-forms-practice.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import {HttpClientModule} from '@angular/common/http';
+
 const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent },
@@ -23,6 +26,7 @@ const routes: Routes = [
   { path: 'detail/:id', canActivate: [AuthGuardService], component: HeroDetailComponent },
   { path: 'reactiveForms', canActivate: [AuthGuardService], component: ReactiveFormsPracticeComponent },
   { path: 'addhero', canActivate: [AuthGuardService], component: FormComponent },
+  { path: 'rxjs', canActivate: [AuthGuardService], component: RxjsComponent },
   {path: 'heroes', canActivate: [AuthGuardService],
   component: HerosComponent,
  // children routes
@@ -47,12 +51,14 @@ const routes: Routes = [
     FormComponent,
     PageNotFoundComponent,
     LoginComponent,
-    ReactiveFormsPracticeComponent
+    ReactiveFormsPracticeComponent,
+    RxjsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
     AppRoutingModule,
   ],
