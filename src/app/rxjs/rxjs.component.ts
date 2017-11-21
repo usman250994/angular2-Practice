@@ -13,22 +13,34 @@ import {Observable} from 'rxjs/Observable';
 })
 
 // tslint:disable-next-line:one-line
-export class RxjsComponent implements OnInit{
-
+export class RxjsComponent implements OnInit, User{
   userId: number;
- result: Observable<Object>;
-ress: any;
+  id: number;
+  title: string;
+  body: string;
+
+ result: Observable<User>;
+  ress: User;
   constructor(private http: HttpClient) { }
   ngOnInit() {
-    this.http.get('https://jsonplaceholder.typicode.com/posts/1').retry(1).repeat(1).subscribe(
+    this.http.get<User>('https://jsonplaceholder.typicode.com/posts/1').retry(1).repeat(1).subscribe(
       data => {
 this.ress = data;
+// putting returned array 'NOT OBJECT' into observable variable result.
  this.result = new Observable(ob => {ob.next(data); } );
-    console.log(this.result.subscribe(res => console.log(res)) );
+
+ // console.log(this.result.subscribe(res => console.log(res)) );
   },
   (err: HttpErrorResponse) => {
 console.log(err.message);
   });
 
   }
+}
+// creating an interface for api return type
+interface User {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
 }
